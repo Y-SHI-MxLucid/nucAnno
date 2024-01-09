@@ -1,0 +1,11 @@
+1. 最好是安装Python11，但其他版本也许可以，文件夹中包含Python11的安装器；
+2. 倘若电脑中有不同版本的Python，且你不准备使用电脑中默认的（在环境变量中的）Python版本来创建虚拟环境，那么将installer.ps1中的命令：
+    python virtualenv.pyz naparienv
+    改为：
+    python virtualenv.pyz -p /path/to/desired/python_interpreter naparienv
+3. 在powershell终端程序图标上右键，选择 以管理员身份运行
+4. 在终端中输入 Set-ExecutionPolicy -ExecutionPolicy Bypass
+5. 退出终端。
+6. 在本文件夹中installer.ps1右键 使用PowerShell运行
+7. 窗口关闭后，至此安装完成。
+8. 在本文件夹中run.ps1右键 使用PowerShell运行 运行工具
