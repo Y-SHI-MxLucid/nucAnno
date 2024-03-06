@@ -31,8 +31,12 @@ def getCurrentLayer(viewer):  # 返回目前选取的图层信息
 
 
 def updateLayer(layer):  # 刷新当前图层以正确显示标签和其他信息的更改
-    layer.visible = False
-    layer.visible = True
+    if layer.visible == False:
+        layer.visible = True
+        layer.visible = False
+    else:
+        layer.visible = False
+        layer.visible = True
     return
 
 
