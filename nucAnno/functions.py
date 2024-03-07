@@ -359,7 +359,7 @@ def loadNprSession(viewer, datasheet, loadPrefix, autoImgLoad):
         viewer.layers.remove(viewer.layers['Image Stack'])
         viewer.layers.insert(len(viewer.layers) - 1, tempLayer)
     print('Loading Session Completed!')
-    return
+    return copy.deepcopy(datasheet.data)
 
 
 # 将标注结果保存为ImageJ ROISet Zip文件。既然现在可以在工具内校正，这个功能现在仅仅是用于数据的通用化。

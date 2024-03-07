@@ -120,8 +120,9 @@ def saveSession(save_prefix: pathlib.Path):
 )
 def loadSession(load_path: pathlib.Path, auto_image_load: bool):
     global grpDict
+    global finalRes
     prefix = str(load_path)
-    loadNprSession(viewer, datasheet, prefix, auto_image_load)
+    finalRes = loadNprSession(viewer, datasheet, prefix, auto_image_load)
     grpDict = getGroupDict(viewer)
 
 
@@ -144,7 +145,8 @@ def saveROIZip(save_prefix: pathlib.Path, roi_sample: pathlib.Path):
     call_button='Load Reviewer Layer'
 )
 def loadReviewer(load_path: pathlib.Path):
-    generateResTable(viewer, True, configurations.LayoutConfig, datasheet, mode='file', loadSource=load_path)
+    global finalRes
+    finalRes = generateResTable(viewer, True, configurations.LayoutConfig, datasheet, mode='file', loadSource=load_path)
 
 # 重新整理各层的编号
 @magicgui(
