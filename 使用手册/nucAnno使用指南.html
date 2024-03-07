@@ -1,0 +1,698 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; outline: 0px; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: auto hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 10px; z-index: 3; overflow-y: hidden; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; inset: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.mac-os #write{
+    caret-color: AccentColor;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>nucAnno使用指南</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h2 id='nucanno使用指南'><span>nucAnno使用指南</span></h2><hr /><ul><li><p><a href='#Q&amp;A'><span>Q&amp;A</span></a></p></li><li><p><a href='#安装部署'><span>安装部署</span></a></p></li><li><p><a href='#图像读入和标注'><span>图像读入和标注</span></a></p></li><li><p><a href='#标注数据导入导出'><span>标注数据导入/导出</span></a></p></li><li><p><a href='#标注结果审阅'><span>标注结果审阅</span></a></p></li><li><p><a href='#高级功能'><span>高级功能</span></a></p></li><li><p><a href='#关于本工具'><span>关于本工具</span></a></p></li></ul><hr /><h3 id='1-qa'><span>1. Q&amp;A</span></h3><ul><li><p><strong><span>Q1: 什么是nucAnno?</span></strong></p><blockquote><p><span>nucAnno是基于Python Napari图像可视化库，为ShiLab开发的自动化fMOST胞体数据标注工具，主要是用于解决神经元轴树突追踪前的胞体定位和胞体脑区标注问题。</span></p><p><span>尽管目前也有种种方案来进行全自动的胞体中心检测与标注（不排除在nucAnno的后续版本中加入这些功能），但是考虑到目前fMOST图像数据不均一的质量（可能源于实验或成像过程），以及在神经元当中混杂的胶质细胞、碎屑、噪点等因素的影响，手动标注可能是最为稳妥的一种方案。因此，nucAnno通过结合Napari的点标注功能、空间自动排序算法等方式，提供了一种半自动的读图→标注→校正→结果导出的全流程方案，效率和可交互性远高于常规的ImageJ的点标注方案。</span></p></blockquote></li><li><p><strong><span>Q2: 我看到在工具目录内还有一个子目录nucRegis，这个是什么？</span></strong></p><blockquote><p><span>nucRegis是与nucAnno工具相关的实验性功能，通过Python SimpleITK图像配准库和networkx连接图处理库等工具，对要标注的实验数据的降采样体块与AllenBrain标准脑区数据进行配准，从而实现近乎于全自动的脑区注释。这一功能尽管已经成功运行并取得了预期结果，但目前还缺乏充分的实验和debug，且缺乏可视化功能，因此仅限于感兴趣的使用者自行实验和发掘。</span></p><p><font color='red'><span>注意！</span></font><span> 安装依赖文件requirements.txt当中仅包含使用nucAnno的最低限度的依赖项。若要使用nucRegis，视你使用的版本，可能需自行安装脚本需求的依赖库，可能包括但可能不限于：</span></p><ul><li><p><span>SimpleITK</span></p></li><li><p><span>pynrrd</span></p></li></ul></blockquote></li><li><p><strong><span>Q3: nucAnno输入何种数据、输出何种数据？</span></strong></p><blockquote><p><span>nucAnno读入降采样的fMOST扫描成像数据，作为标注的原图像文件。数据的格式可以是在文件夹中以文件名正确排序的一系列tiff、png或jpg图像文件（不宜数量太多[如，&gt;350]，否则可能导致一次无法读完），也可以是一个完整的tiff stack图像文件。</span></p><p><span>nucAnno输出以下种类的数据：</span></p><p><span>（1）ncas（nucAnno Session）文件。这个文件可以用于保存任何胞体标注工程。只要同时拥有标注的原图像文件，就可以随时利用ncas文件恢复之前标注的进程。</span></p><p><span>（2）标注结果的excel文件。这一文件直观地体现被标注胞体的位置、顺序和脑区，符合shilab的标准胞体标注格式，可以直接被用于后续的流程。同时，你可以使用excel文件在nucAnno中生成&quot;Reviewer&quot;图层，结合标注的原图像文件，就可以对标注结果进行后期审阅和校正。</span></p><p><span>（3）ImageJ ROISet Zip文件。这个文件是将工具的标注结果转换为ImageJ ROI Manager可以读入和显示的ROISet文件，你可以在ImageJ ROI Manager里面打开它并进行后续的审阅，但是自然地，不再支持交互式的校正和结果导出。这一功能主要是针对没有使用这一工具的用户来进行数据上的对接。</span></p></blockquote></li><li><p><strong><span>Q4: 我能在这一工具的基础上进行进一步的开发吗？</span></strong></p><blockquote><p><span>欢迎。但是请保持这一工具的开源性，如本工具遵循的GNU GPL协议所述。如果涉及到任何学术性成果的发表，请联系并注明本工具的原作者。</span></p></blockquote></li><li><p><strong><span>Q5: 我能将这一工具不做修改、直接打包销售或尝试其他可能的商业化手段吗？</span></strong></p><blockquote><p><span>不能。</span></p></blockquote></li><li><p><strong><span>Q6: 我能将这一工具发布在网上/拷贝给其他人吗？</span></strong></p><blockquote><p><span>这一工具的功能是高度特化的，拷贝给他人请联系ShiLab的相关人员确认可行性。不推荐将未进行二次开发的原工具发布在网上，如有必要理由，请联系原作者。如涉及二次开发和学术成果发表，请参照Q4。</span></p></blockquote></li></ul><h3 id='安装部署'><span>安装部署</span></h3><p><span>nucAnno已经部署在ShiLab的数台计算机上，如需使用，可直接联系相关人员。</span></p><p><span>如需在其他计算机上部署该工具，遵循以下步骤：</span></p><ol start='' ><li><p><span>系统需求：RAM ≥ 16Gb；典型的基准水平CPU如i5-1135G7或同等效能的CPU。</span></p><p><font color='Blue'><span>注意</span></font><span>: 工具对于显卡配置没有特殊需求。工具会应用渲染当前显示器的显卡来渲染图像，因此，假如显示器没有直接连接到高性能独显上，独显将无助于提升工具性能。参见这一讨论：</span></p></li><li><p><span>安装包：</span></p><p><span>nucAnno的工程发布在</span><a href='https://github.com/Y-SHI-MxLucid/nucAnno'><span>Y-SHI-MxLucid/nucAnno: 神经细胞克隆自动化标注工具 (github.com)</span></a><span> 。你可以在</span><a href='https://github.com/Y-SHI-MxLucid/nucAnno/releases/tag/v0.0.1-beta'><span>Release Beta Release 0.0.1 · Y-SHI-MxLucid/nucAnno (github.com)</span></a><span>找到文件的源代码，点击&quot;Assets&quot;中的任一链接均能下载源代码文件夹。建议&quot;Source code (zip)&quot;选项。</span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240305211413495.png" alt="image-20240305211413495" style="zoom: 47%;" align="left"/></span></p></li><li><p><span>下载源代码安装包并解压至任意位置，这一根目录的位置接下来我们表示为</span><font color="Gree"><span>/path/to/program/</span></font><span> 。目录中的内容应当大体上如图所示，可能略有出入，但一定会有nucAnno和nucRegis两个子文件夹：</span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240305215353642.png" alt="image-20240305215353642" style="zoom: 93.5%;" align="left"/></span></p></li><li><p><span>假如计算机没有安装Python 3.11：在子路径 </span><font color="Gree"><span>/path/to/program/</span></font><span>nucAnno/install/ 中，点击安装文件并安装Python 3.11。如果你不希望新安装的Python 3.11覆盖原先环境变量中已经安装的其他版本的Python，在安装时</span><strong><span>不要</span></strong><span>点选 &quot;Add python.exe to PATH&quot;选项。请完全按照默认选项进行安装。安装后，找到程序的安装路径，这一路径接下来我们表示为：</span><font color="Orange"><span>/path/to/interpreter/</span></font><span> 。</span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240305212219284.png" alt="image-20240305212219284" style="zoom: 67%;" align="left"/></span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240305212804619.png" alt="image-20240305212804619" style="zoom: 59.7%;" align="left"/></span></p></li><li><p><span>在任意位置创建一个空文件夹，这一空文件夹的路径接下来表示为</span><font color="Pink"><span>/prefix/to/environment/</span></font><span> 。</span></p></li><li><p><span>注意到nucAnno/install/ 中有一个文件virtualenv.pyz。接下来，打开Windows Powershell，输入以下命令：</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="powershell"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="powershell"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.52344px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">cd</span> <span class="cm-operator">/</span><span class="cm-identifier">prefix</span><span class="cm-operator">/</span><span class="cm-identifier">to</span><span class="cm-operator">/</span><span class="cm-identifier">environment</span><span class="cm-operator">/</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">/</span><span class="cm-identifier">path</span><span class="cm-operator">/</span><span class="cm-identifier">to</span><span class="cm-operator">/</span><span class="cm-identifier">interpreter</span><span class="cm-operator">/</span><span class="cm-identifier">python</span><span class="cm-punctuation">.</span><span class="cm-identifier">exe</span> <span class="cm-identifier">virtualenv</span><span class="cm-punctuation">.</span><span class="cm-identifier">pyz</span> <span class="cm-identifier">nucAnno</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 此处等待片刻，虚拟环境即创建完成，关闭WIndows Powershell</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 69px;"></div><div class="CodeMirror-gutters" style="display: none; height: 69px;"></div></div></div></pre><p><span>我们将</span><font color="Pink"><span>/prefix/to/environment/</span></font><span>nucAnno/ 这一目录接下来表示为</span><font color="Cyan"><span>/path/to/environment/</span></font><span> 。</span></p></li><li><p><span>接下来，我们需要在Windows Powershell程序上右键&quot;以管理员身份运行&quot;。</span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240305214639040.png" alt="image-20240305214639040" style="zoom:77.8%;" align="left"/></span></p><p><span>在打开的命令行窗口中输入：</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="powershell"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="powershell"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.52344px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">Set-ExecutionPolicy</span> <span class="cm-operator">-</span><span class="cm-identifier">ExecutionPolicy</span> <span class="cm-identifier">Bypass</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 执行策略更改</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 执行策略可帮助你防止执行不信任的脚本。更改执行策略可能会产生安全风险，如 https:/go.microsoft.com/fwlink/?LinkID=135170中的 about_Execution_Policies 帮助主题所述。是否要更改执行策略?</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># [Y] 是(Y)  [A] 全是(A)  [N] 否(N)  [L] 全否(L)  [S] 暂停(S)  [?] 帮助 (默认值为"N"):</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 输入Y或者A，然后回车，随后即可关闭WIndows Powershell</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 138px;"></div><div class="CodeMirror-gutters" style="display: none; height: 138px;"></div></div></div></pre></li><li><p><span>接下来，重新以常规权限打开Windows Powershell。输入以下命令：</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="powershell"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="powershell"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.52344px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">/</span><span class="cm-identifier">path</span><span class="cm-operator">/</span><span class="cm-identifier">to</span><span class="cm-operator">/</span><span class="cm-identifier">environment</span><span class="cm-operator">/</span><span class="cm-identifier">Scripts</span><span class="cm-operator">/</span><span class="cm-identifier">Activate</span><span class="cm-punctuation">.</span><span class="cm-identifier">ps1</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-identifier">python</span> <span class="cm-operator">-</span><span class="cm-identifier">m</span> <span class="cm-identifier">pip</span> <span class="cm-identifier">install</span> <span class="cm-operator">-</span><span class="cm-identifier">i</span> <span class="cm-identifier">https</span><span class="cm-operator">://</span><span class="cm-identifier">pypi</span><span class="cm-punctuation">.</span><span class="cm-identifier">tuna</span><span class="cm-punctuation">.</span><span class="cm-identifier">tsinghua</span><span class="cm-punctuation">.</span><span class="cm-identifier">edu</span><span class="cm-punctuation">.</span><span class="cm-identifier">cn</span><span class="cm-operator">/</span><span class="cm-identifier">simple</span> <span class="cm-operator">--</span><span class="cm-identifier">upgrade</span> <span class="cm-identifier">pip</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-identifier">python</span> <span class="cm-operator">-</span><span class="cm-identifier">m</span> <span class="cm-identifier">pip</span> <span class="cm-identifier">install</span> <span class="cm-operator">--</span><span class="cm-identifier">ignore-installed</span> <span class="cm-operator">-</span><span class="cm-builtin">r</span> <span class="cm-operator">/</span><span class="cm-identifier">path</span><span class="cm-operator">/</span><span class="cm-identifier">to</span><span class="cm-operator">/</span><span class="cm-identifier">program</span><span class="cm-operator">/</span><span class="cm-identifier">nucAnno</span><span class="cm-operator">/</span><span class="cm-identifier">install</span><span class="cm-operator">/</span><span class="cm-identifier">requirements</span><span class="cm-punctuation">.</span><span class="cm-identifier">txt</span> <span class="cm-operator">-</span><span class="cm-identifier">i</span> <span class="cm-identifier">https</span><span class="cm-operator">://</span><span class="cm-identifier">pypi</span><span class="cm-punctuation">.</span><span class="cm-identifier">tuna</span><span class="cm-punctuation">.</span><span class="cm-identifier">tsinghua</span><span class="cm-punctuation">.</span><span class="cm-identifier">edu</span><span class="cm-punctuation">.</span><span class="cm-identifier">cn</span><span class="cm-operator">/</span><span class="cm-identifier">simple</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># 此步骤需要保持计算机联网。可能需要消耗几分钟到十几分钟的时间，请耐心等待直到运行结束。这一步将程序运行所需的依赖项安装至虚拟环境中。</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 115px;"></div><div class="CodeMirror-gutters" style="display: none; height: 115px;"></div></div></div></pre></li><li><p><span>最后，将</span><font color="Gree"><span>/path/to/program/</span></font><span>nucAnno/install/run_nucAnno.ps1这一文件拷贝至程序根目录</span><font color="Gree"><span>/path/to/program/</span></font><span> 。 </span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="powershell"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="powershell"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.52344px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">/</span><span class="cm-identifier">path</span><span class="cm-operator">/</span><span class="cm-identifier">to</span><span class="cm-operator">/</span><span class="cm-identifier">environment</span><span class="cm-operator">/</span><span class="cm-identifier">Scripts</span><span class="cm-operator">/</span><span class="cm-identifier">Activate</span><span class="cm-punctuation">.</span><span class="cm-identifier">ps1</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">#虚拟环境激活文件的路径，将文件中这一句改为和实际的虚拟环境路径对应</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-identifier">python</span> <span class="cm-punctuation">.</span><span class="cm-operator">/</span><span class="cm-identifier">nucAnno</span><span class="cm-operator">/</span><span class="cm-identifier">main</span><span class="cm-punctuation">.</span><span class="cm-identifier">py</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">#启动程序</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 92px;"></div><div class="CodeMirror-gutters" style="display: none; height: 92px;"></div></div></div></pre></li><li><p><span>至此部署完成。使用时只需在根目录的run_nucAnno.ps1文件上右键，选择&quot;使用Powershell运行&quot;即可。</span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240305230419083.png" alt="image-20240305230419083" style="zoom:67%;" align="left"/></span></p></li></ol><h3 id='图像读入和标注'><span>图像读入和标注</span></h3><ol start='' ><li><p><span>程序启动后的界面如图所示。视显示器的分辨率等因素，各组件一开始可能没有处在合适的大小，请自行拖动其边缘进行调整。</span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240306153528318.png" alt="image-20240306153528318" style="zoom: 33%;" align="left"/></span></p></li><li><p><span>读入欲标注的原图像文件时，点击界面右上角target栏目的&quot;Select Files&quot;，打开文件选择窗口。这里，你可以选择单个的Tiff Stack文件，也可以在图像文件夹中Ctrl+A选取一系列图片同时读入。在文件选择窗口点击打开后，还需要在target栏目下方点击&quot;Read Image&quot;来开始读入图片。</span></p><p><font color='red'><span>注意！</span></font><span> 读入一系列图片时，请确保这些图片在文件夹中是</span><strong><span>正确排序</span></strong><span>的。</span></p><p><font color='red'><span>注意！</span></font><span> 当你选择一系列图片时，请确保图片的数量</span><strong><span>不会太多</span></strong><span>（例如，不超过350张）。否则将会导致文件名称超出长度的最大限制，从而使得读入出错。</span></p><p><font color='red'><span>注意！</span></font><span> </span><strong><span>请勿尝试</span></strong><span>在左上角&quot;File&quot;菜单、或直接将文件拖入界面窗口来打开图像文件。</span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240306152439045.png" alt="image-20240306152439045"  align="left"/></span></p></li><li><p><span>在经过大约数秒钟到十几秒钟等待后，界面的左下角图层栏目将新增Reviewer、Image Stack和Clone Marker三个图层。此时意味着图片读入完毕。点击Image Stack图层，调节左上角contrast limits的上界至极低，然后向后滚动鼠标滚轮（缩小图片），直至图像出现在视野中。将图像拖动到视野正中并重新放大，重新调节contrast limits的上界，直至图像对比度能够清晰地区分出神经元胞体、又不至于忽略掉比较暗的细胞。至此，图片的读入和调整完成。</span></p><blockquote><p><span>可选的操作：你可以将Image Stack层的opacity调节至0.85左右，这样就可以在后续标注时看到以圆形标出的标记胞体的位置范围。但是这一功能在实际操作中作用往往并不明显。</span></p></blockquote><p><font color='Blue'><span>注意</span></font><span> 由于某些未知的原因，读入的fMOST图片会显示在初始视野的右下方（这一点是fMOST图像独有的），因此一开始视野中没有任何图片是正常的。你需要做的就是拉远视角直到找出图像在哪里。</span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240306161009552.png" alt="image-20240306161009552" style="zoom: 38.4%;" align="left"/></span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240306161226205.png" alt="image-20240306161226205" style="zoom:38.4%;" align="left"/></span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240306162321063.png" alt="image-20240306162321063" style="zoom:27.8%;" align="left"/></span></p></li><li><p><span>在说明标注流程之前，首先在此说明Napari平台所支持的几种图层类型，包括：</span></p><ul><li><p><span>Points</span></p></li><li><p><span>Shapes</span></p></li><li><p><span>Labels</span></p></li><li><p><span>Image</span></p></li></ul><p><span>以及没有显式体现在软件界面的</span></p><ul><li><p><span>Tracks</span></p></li><li><p><span>Surface</span></p></li><li><p><span>Vectors</span></p></li><li><p><span>Graphs （尚未发布的实验性功能）</span></p></li></ul><p><span>关于这些图层的详细描述和使用教程，请参见：</span></p><ul><li><p><a href='https://napari.org/stable/guides/layers.html'><span>Layers at a glance — napari</span></a></p></li><li><p><a href='https://napari.org/stable/howtos/layers/index.html'><span>Using layers — napari</span></a></p></li><li><p><a href='https://napari.org/stable/api/napari.layers.html'><span>napari.layers — napari</span></a></p></li></ul><p><span>我们在nucAnno中使用Points图层来标记胞体位置，并使用Shapes图层来自动显示被标记胞体的区域。</span></p></li><li><p><span>我们每标记一个稀疏标记的神经元的克隆，即需要添加一个胞体标注图层。例如图中我们想要标记这个RSP脑区的克隆。这个克隆在邻接的两个Z位置上有细胞分布。我们首先需要在左下角图层栏目中，点击&quot;New points layer&quot;按钮，新建一个Points图层。创建完毕后选中新图层，点击左上方工具栏的&quot;Add points&quot;按钮，进入添加胞体标记的工作。</span></p><p><font color='Blue'><span>注意</span></font><span> Points图层的工具栏里面，最上方四个按钮分别为删除标点、增加标点、选中标点、移动图像。具体的用法请参照4当中的Napari平台相关教程。值得一提的是，在&quot;增加标点&quot;模式下，依然具有拖拽图像、滚轮放大缩小图像的功能。但是，在选择&quot;增加标点&quot;模式后，必须用鼠标拖拽一次图像，才能够正常地使用键盘←→方向键来在stack中切换不同帧/层的图像。</span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240306165942339.png" alt="image-20240306165942339" style="zoom:38.5%;" align="left"/></span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240306170248987.png" alt="image-20240306170248987" style="zoom: 80%;" align="left"/></span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240306170637167.png" alt="image-20240306170637167" style="zoom:79%;" align="left"/></span></p></li><li><p><span>依次用增加标点工具标注在该克隆分布在各层的神经元胞体。这个标注过程不需要按照任何顺序，只要保证克隆中分布在各层的所有神经元胞体都被标注即可。你可以随时点选左上工具栏中&quot;out of slice&quot;选项，将各层的标注点投射到当前层来查看它们的分布，如下图所示。其中被红色三角标记的标注点是被标注在临近层上的，实际位置不在该层。</span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240306172415452.png" alt="image-20240306172415452" style="zoom:45%;" align="left"/></span></p></li><li><p><span>标注完成后，你需要额外增加一个&quot;参照点&quot;。这个参照点标定了当前克隆所在脑区的皮层最内侧的方向。示例和原理如下图所示。工具会根据各个标注的胞体到&quot;参照点&quot;的距离进行排序，来确定各个胞体的内外顺序，并将之体现在序号中。</span></p><blockquote><p><span>这当然不是最准确的方法。确定神经胞体皮层内外顺序的金标准当然是计算空间中各个标点到脑区分层边界这一3维曲面的法向距离，而且还要考虑内外所有的分层。很显然，这已经超出了工具作者孱弱的数学能力。欢迎各位提出计算方法上的改进建议。</span></p></blockquote><p><font color='red'><span>注意！</span></font><span> 请确保参照点是最后一个添加的。算法上，最后一个添加的点会被视作参照点。</span></p><p><font color='Blue'><span>注意</span></font><span> 有时由于脑区的分层具有奇怪的形状，无论参照点处在何种位置，都不能形成完全正确的胞体内外排序。此时你可以取一个&quot;尽可能正确&quot;的位置，后续在交互式表格中修改胞体的次序信息。</span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240306174134257.png" alt="image-20240306174134257" style="zoom:62%;" align="left"/></span></p></li><li><p><span>在标注完&quot;参照点&quot;后，你需要在右侧功能区Assign Points模块定义标注克隆的脑区名称。例如在此处，我们标记的克隆处于RSP脑区，则我们需要在group name栏目输入&quot;RSP&quot;，然后点击下方的按钮&quot;Assign Points&quot;。点击之后，你将会看到如下图显示的几个变化：</span></p><ul><li><p><span>标记的神经元胞体，标点变成随机颜色的&quot;+&quot;形，并按照其内外层顺序被命名，胞体编号以标签的形式标注在胞体上；</span></p></li><li><p><span>右边的交互式表格中出现了该层的胞体标注信息；</span></p></li><li><p><span>左边的图层栏目中，新标记的图层将会按照脑区名称被重命名，可见性改变为不可见，位置移动至Image Stack下方。</span></p></li></ul><blockquote><p><span>实际上，你看到的标点和文字标签并不是来源于新标注图层（已经被设置为不可见）上的显示。各个克隆标注图层的标点位置和胞体编号的信息会被合并、并统一在Reviewer层进行显示。这一操作是为了使得同一时间在界面显示（即设置为可见）的图层数量不会随着标注克隆数量的增加而增加，从而有效地改善在低配置计算机上的运行流畅度。</span></p></blockquote><p><font color='Blue'><span>注意</span></font><span> 对于基础的标注功能而言，Assign Points模块其他部分的设置不需要做任何有别于默认设置的改变。值得一提的是&quot;random color&quot;选项：这一选项默认选中，使得每一次完成整个克隆标记后，克隆的标点和文字标签会以随机颜色（相应的随机生成函数经过HSV表示处理，确保不会产生低饱和度/低亮度的颜色）显示。倘若取消选中，克隆的标点和文字标签会统一显示为红色。</span></p><p><span>至此，单个神经元克隆的胞体标注就已经完成。若要标注复数个克隆，重复步骤5~8的操作。后续的克隆标注图层将会逐层追加在图层栏目中（并始终处于Image Stack和Reviewer图层下方）；这些标注图层的胞体位置信息和胞体编号将会被追加至右侧的可交互式表格中。</span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240306193223908.png" alt="image-20240306193223908" style="zoom:75%;" align="left"/></span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240306194033622.png" alt="image-20240306194033622" style="zoom: 40%;" align="left"/></span></p></li><li><p><span>在解释如何对标注结果进行修改之前，我们首先检视右侧可交互式表格的各列内容。对于各列内容的解释如下图：</span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240306201225413.png" alt="image-20240306201225413" style="zoom:67.8%;" align="left"/></span></p><p><span>表格的各项内容是可修改的。但是非常不建议直接修改总表的内容，除非在Reviewer模式下（参见本指南的第5章：nucAnno的标注结果审阅）。</span></p><p><span>修改特定的标注图层有两种方法：</span></p><ul><li><p><span>在表格中修改。这种方法适用于先前标注结果有个别点顺序有误需要进行交换的情况；</span></p></li><li><p><span>对图层进行重新标注。这种方法适用于先前标注结果存在多标、少标、参照点选择需要进行调整、脑区名称需要改变等情况。</span></p></li></ul><p><strong><font color="Purple"><span>在表格中修改</span></font></strong></p><ol start='' ><li><p><span>点选需要修改的克隆标注图层，然后点击右侧功能栏目中的&quot;Get Feature&quot;，交互式表格中将仅显示该层的数据。</span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240307133551260.png" alt="image-20240307133551260" style="zoom: 38.3%;" align="left"/></span></p></li><li><p><span>在表格中，修改&quot;胞体编号&quot;和&quot;Order&quot;两栏的内容，以交换两个胞体的编号顺序。修改后点击右侧功能栏目中的&quot;Update Feature&quot;。</span></p><p><font color='red'><span>注意！</span></font><span> 如果不是在Reviewer模式下，请勿选中&quot;proof read&quot;选项。</span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240307135659561.png" alt="image-20240307135659561" style="zoom: 87.3%;" align="left"/></span></p></li><li><p><span>之后，图像中的标记以及总表中的数据都会被更新至正确的次序。</span></p><p><font color='Blue'><span>注意</span></font><span> 在旧版本中（如安装在ShiLab某些计算机上的版本），存在如下Bug：当总表数据被更新后，被更改的克隆标注层的可见性将变为&quot;可见&quot;（如下图中左下红色方框所示）。这并不影响软件的正确运行，但这样可见的图层积累过多将可能导致软件流畅度降低。需要手动将可见性改为&quot;不可见&quot;。这一Bug已经在GitHub的最新版本中被修复。</span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240307140418076.png" alt="image-20240307140418076" style="zoom:38.4%;" align="left"/></span></p></li></ol><p><strong><font color="Purple"><span>对图层进行重新标注</span></font></strong></p><ol start='' ><li><p><span>将需要修改的图层拖拽至图层栏的最上层，可见性更改为&quot;可见&quot;。同时将Reviewer层的可见性修改为&quot;不可见&quot;。</span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240307144950806.png" alt="image-20240307144950806" style="zoom:100%;" align="left"/></span></p></li><li><p><span>选中需要修改的点，点击删除按钮将点删除。</span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240307144520821.png" alt="image-20240307144520821" style="zoom:49.4%;" align="left"/></span></p></li><li><p><span>删除后，添加新的正确标点。新添加的点会具有&quot;+&quot;形格式并带有无意义的文字标签，请无视这些标签。添加后不要忘记添加参照点，并点击右上&quot;Assign Points&quot;按钮。</span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240307145347309.png" alt="image-20240307145347309" style="zoom:38.45%;" align="left"/></span></p></li><li><p><span>之后，图像上的标记、总表中的数据都会被更新。克隆标记图层的位置、可见性、Reviewer图层的可见性等设置都会恢复至之前的状态。你可以直接继续其他克隆的标注。</span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240307145707584.png" alt="image-20240307145707584" style="zoom:38.3%;" align="left"/></span></p></li></ol></li><li><p><span>在一些情况下，我们删除了一些之前标注的图层。例如在下图中，我们标记了SSp-1、SSp-2和SSp-3三个处于SSp区的克隆（请忽略图中SSp-3标点稀奇古怪的位置，这是随机标上去用于测试功能的）。现在我们认为SSp-2的克隆标记不妥，因此将其删除。现在我们希望将这一删除的结果体现出来，即：</span></p></li></ol><ul><li><p><span>将现在的SSp-3克隆重新命名为SSp-2，因为它之前的SSp-2已经被删除了；</span></p></li><li><p><span>将改变体现至数据总表。</span></p></li></ul><p><span>   此处我们只需要点击右侧功能区的&quot;Rearrange Group Idx&quot;即可。点击后，工具将会自动计算目前存在的图层，来决定其编号，并将结果反映到胞体编号标签以及数据总表中。</span></p><p><span>   </span><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240307150854324.png" alt="image-20240307150854324" style="zoom:39.8%;" align="left"/></p><p><span>  </span></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p><span> 重排后的效果如图：</span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240307192804962.png" alt="image-20240307192804962" style="zoom:39.8%;" align="left" /></span></p><p><font color='Blue'><span>注意</span></font><span> 有时我们将之前标注的某个克隆标注图层的脑区重命名至其他脑区后，也会产生相似的问题，需要通过重排来解决。</span></p><p>&nbsp;</p><h3 id='标注数据导入导出'><span>标注数据导入/导出</span></h3><p><span>正如Q&amp;A部分所叙述的那样，nucAnno可以导出如下三种文件：</span></p><ul><li><p><span>标注进程文件 .ncas</span></p></li><li><p><span>标注结果文件 .xlsx</span></p></li><li><p><span>ImageJ ROISet文件 .zip</span></p></li></ul><ol start='' ><li><p><strong><span>标注进程文件的导出和导入</span></strong></p><p><font color="Purple"><strong><span>导出 .ncas文件</span></strong></font></p><p><span>在完成标注、或者标注到中途由于某种原因必须停止标注的情况下，可以将标注进程保存到.ncas文件中。你需要在右侧功能栏目的&quot;Save Annotation Session&quot;部分，设定save prefix栏目的保存路径。注意这一路径既可以是新文件命名，也可以是已经存在的文件（将会覆盖已存在的文件）。设定保存文件名时，不必特地加上.ncas后缀。</span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240307195429473.png" alt="image-20240307195429473" style="zoom:123%;" align="left"/></span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240307195614693.png" alt="image-20240307195614693" style="zoom: 50%;" align="left"/></span></p><p><span>设定保存路径后，点击&quot;Save Session&quot;，进程文件即保存至相应路径。</span></p><p><font color="Purple"><strong><span>导入 .ncas文件</span></strong></font></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240307202843769.png" alt="image-20240307202843769" style="zoom:113%;" align="left"/></span></p><p><span>在右侧功能栏目的&quot;Load Annotation Session&quot;部分，选择需要导入的进程文件。然后点击下方&quot;Load Session&quot;。进程文件虽然不会保存注释的整个原图像文件（可能高达数个Gb大小），但会记录这个原图像文件的路径。假如你确定进程文件所标注的图像文件目前就在之前所记录的路径，那么可以选中&quot;load path&quot;栏目下方的&quot;auto image load&quot;选项。如果文件路径已经改变，就不要点选这个选项，而是在导入Session之后重新通过&quot;Read Image&quot;功能读入图像。之后，即可以从上次的进度开始、继续对图像进行标注。</span></p><p><font color='red'><span>注意！</span></font><span> 在一些旧版本中，存在（1）不点选&quot;auto image load&quot;选项、导入进程文件发生报错，以及（2）在导入进程之后单独读入图像，产生冗余的Clone Marker及Reviewer图层，且Image Stack图层不在正确次序的bug。在GitHub发布的最新版本中，这一bug已被修复。在出现bug（1）时，可以忽略报错信息，这不会产生任何影响；出现bug（2）时，可以手动删除冗余的图层，并将Image Stack图层拖拽至正确的位置（Reviewer图层下、Clone Marker和其他克隆标注图层上）。</span></p></li><li><p><strong><span>标注结果文件的导出和导入</span></strong></p><p><font color="Purple"><strong><span>导出 .xlsx文件</span></strong></font></p><p><span>与导出.ncas文件的方法类似，你需要在右侧功能栏目的&quot;Save Result to Excel&quot;部分，设定save prefix栏目的保存路径。注意这一路径既可以是新文件命名，也可以是已经存在的文件（将会覆盖已存在的文件）。设定保存文件名时，不必特地加上.xlsx后缀。</span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240307210128970.png" alt="image-20240307210128970" style="zoom:113%;" align="left"/></span></p><p><span>导出的文件将具有颜色格式，使得不同的克隆组被颜色区分，如下图所示。目前还无法仅改变具有内容的特定列的颜色。如果你认为这样的着色方案很丑，可以在Excel文件中自行调整。</span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240307210723245.png" alt="image-20240307210723245" style="zoom:45.5%;" align="left"/></span></p><p><font color="Purple"><strong><span>导入 .xlsx文件</span></strong></font></p><p><span>与导入.ncas文件不同，导入标注结果的.xlsx文件不会产生新的标注进程，文件本身也不包含标注的原始图像的路径信息。因此，你必须首先按照本指南第三部分&quot;nucAnno的图像读入和标注&quot;的内容，首先读入原始图像、生成一个空的标注进程，然后在右侧功能栏目的&quot;Load Reviewer Layer&quot;部分，选择需要导入的进程文件，之后点击&quot;Load Reviewer Layer&quot;按钮，将之前导出的标注结果表格导入为一个可视化的Reviewer图层（会覆盖原有Reviewer图层的内容）。导入的标注结果同时也将体现在可交互式表格中，便于审阅人员对nucAnno的标注结果进行审阅。</span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240307211546002.png" alt="image-20240307211546002" style="zoom:113%;" align="left"/></span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240307211745152.png" alt="image-20240307211745152" style="zoom:35%;" align="left"/></span></p><p><span>[导入后的结果。图上的点系用于测试，并非显示错误。]</span></p></li><li><p><strong><span>ImageJ ROISet文件的导出</span></strong></p><p><span>目前工具支持将结果导出为ImageJ ROISet文件，以便利那些宁可使用ImageJ来浏览本工具标注结果的</span><del><span>保守主义者</span></del><span>用户；但并不能导入和显示ROISet文件。</span></p><ol start='' ><li><p><span>在右侧功能栏目的&quot;Save Result to Image ROI&quot;区域，首先选择上方的文件保存位置。同样的，不需要在文件名后面加上&quot;zip&quot;后缀。</span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240307212616404.png" alt="image-20240307212616404" style="zoom:100%;" align="left"/></span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240307212723391.png" alt="image-20240307212723391" style="zoom:46%;" align="left"/></span></p><p><span>然后选择下方的roi sample文件路径。在</span><font color="Gree"><span>/path/to/program/</span></font><span>nucAnno/sample_data/ 这一路径下，有一个文件&quot;testROISet.zip&quot;，在打开的窗口中选择这一文件。</span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240307213122808.png" alt="image-20240307213122808" style="zoom:46%;" align="left"/></span></p><p>&nbsp;</p></li><li><p><span>在两个路径都选择后，点击&quot;Save ROIZip&quot;按钮。一个ImageJ ROI Zip文件即保存至相应路径。你可以在ImageJ的ROI Manager功能中打开它。</span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240307214536487.png" alt="image-20240307214536487" style="zoom:54%;" align="left"/></span></p><p><font color='Blue'><span>注意</span></font><span> 关于ImageJ ROI Manager的使用方法，请自行参考相关的网上教程。这里仅作一点提醒：为了能在图像上正确显示标点的胞体编号标签，你需要在ROI Manger的 More &gt;&gt; → Options... 窗口中点选 &quot;Use ROI names as labels&quot;选项。</span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240307214919711.png" alt="image-20240307214919711" style="zoom:109%;" align="left"/></span></p></li></ol><p><font color='red'><span>注意！</span></font><span> 在一些旧版本中，存在&quot;加载进度文件/结果文件后直接将结果导出为ROISet文件将会报错&quot;的bug。如果你在当前进度下存在已经标注好的多个克隆标记图层，则可以通过先点击右侧功能栏目中&quot;Generate Result&quot;按钮，然后再导出ROISet文件来解决。这一bug在GitHub发布的最新版本中已被修复。</span></p></li></ol><hr /><blockquote><p><span>ᕕ( ᐛ )ᕗ ᕕ( ᐛ )ᕗ</span><strong><span>至此，你已掌握了对全脑扫描成像图像的神经元克隆胞体标注方法。</span></strong><span>ᕕ( ᐛ )ᕗ ᕕ( ᐛ )ᕗ ᕕ(;´ヮ`)ᕗ</span></p></blockquote><hr /><h3 id='标注结果审阅'><span>标注结果审阅</span></h3><p><span>在通过本指南第4部分&quot;标注数据导入/导出&quot;指引下，当你导入了已经标记好的结果xlsx文件到Reviewer图层，即可以开始标注结果审阅。审阅过程中不能对各个克隆的标点进行重新标注，仅能通过修改可交互式表格中的内容——正如&quot;图像读入和标注&quot;部分说明的那样，对各个克隆的胞体编号和次序进行调整。在对总表进行调整后，需要点选右侧功能栏目中&quot;Update Feature&quot;按钮，对Reviewer图层的标注结果进行更新。</span><strong><font color="Orange"><span>但与之前介绍的、针对各个单独的克隆标注图层的表格进行修改的方法不同的是：（1）你不需要预先点击&quot;Get Feature&quot;按钮；（2）在点击&quot;Update Feature&quot;按钮时，需要确保&quot;proof read&quot;选项被选中</span></font></strong><span>。</span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240307221151237.png" alt="image-20240307221151237" style="zoom:117%;" align="left"/></span></p><h3 id='高级功能'><span>高级功能</span></h3><ul><li><p><strong><span>对于软件默认显示选项的调整：</span></strong></p><p><span>在</span><font color="Gree"><span>/path/to/program/</span></font><span>nucAnno/configurations.py 文件中，你可以调整软件的一些默认显示选项。这些选项的意义在文件的注释文本中已经有充分的说明，在这里就不再赘述。</span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240307221849263.png" alt="image-20240307221849263" style="zoom:80%;" align="left"/></span></p></li><li><p><strong><span>nucAnno自动配准功能的使用：</span></strong></p><p><span>nucRegis利用SimpleITK配准库和networkx图处理库，对实验数据降采样得到的脑图像、AllenBrain标准脑图像以及脑区注释数据进行空间上的仿射变换配准，最终得到脑区注释信息在实验得到的图像数据上的空间分布。在标注时，工具会根据克隆标注图层各个点的位置，进行kNN最近邻搜索来决定各个标点的所属脑区，并根据拥有最多标点的脑区来自动命名当前的克隆标注图层，从而省去了人为提供当前克隆标注的脑区位置信息这一过程。</span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240307223537334.png" alt="image-20240307223537334" style="zoom:71%;" align="left"/></span></p><p><span>在使用nucAnno自动配准功能时，首先需要导入nucRegis所生成的（1）配准完成的脑区注释文件；（2）脑区分结点映射至主节点的映射文件，来生成一个脑区自动分配的kNN模型。接着，在Assign Points模块，需要点选&quot;auto assign&quot;选项，来开启自动配准功能。</span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240307223853304.png" alt="image-20240307223853304" style="zoom:50%;" align="left"/></span></p><p><span class='md-image'><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20240307223919488.png" alt="image-20240307223919488" style="zoom:50.3%;" align="left"/></span></p><p><span>如果你对于这部分功能、以及这部分功能的继续开发感兴趣，可以联系作者。</span></p></li></ul><h3 id='关于本工具'><span>关于本工具</span></h3><hr /><p><span>关于本工具的合适使用场景的解释权归ShiLab相关负责人员所有。</span></p><p><span>联系作者：</span><a href='mailto:yul_shi@outlook.com' target='_blank' class='url'>yul_shi@outlook.com</a></p><p>&nbsp;</p></div></div>
+</body>
+</html>
