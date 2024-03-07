@@ -129,9 +129,15 @@ def reader(viewer, targetFile, rgb=False):
         if len(imageStack.shape) < 3:
             imageStack = np.expand_dims(imageStack, 0)
 
-    viewer.add_shapes(name='Clone Marker')
-    _ = viewer.add_image(imageStack, rgb=rgb, name='Image Stack')
-    viewer.add_points(name='Reviewer')
+    if len(viewer.layers) == 0:
+        viewer.add_shapes(name='Clone Marker')
+        _ = viewer.add_image(imageStack, rgb=rgb, name='Image Stack')
+        viewer.add_points(name='Reviewer')
+    else:
+        _ = viewer.add_image(imageStack, rgb=rgb, name='Image Stack')
+        tempLayer = viewer.layers['Image Stack']
+        viewer.layers.remove(viewer.layers['Image Stack'])
+        viewer.layers.insert(len(viewer.layers) - 1, tempLayer)
     resetContrast(viewer.layers[-2])
 
     # return copy.deepcopy(imageStack)
@@ -348,9 +354,10 @@ def loadNprSession(viewer, datasheet, loadPrefix, autoImgLoad):
         layerName = retrievePrefix(layerFrame.iloc[0, 0])
         displayLayer(viewer, layerFrame, layerName, layout_config)
     generateResTable(viewer, True, layout_config, datasheet, mode = 'data', loadSource = None)
-    tempLayer = viewer.layers['Image Stack']
-    viewer.layers.remove(viewer.layers['Image Stack'])
-    viewer.layers.insert(len(viewer.layers) - 1, tempLayer)
+    if autoImgLoad:
+        tempLayer = viewer.layers['Image Stack']
+        viewer.layers.remove(viewer.layers['Image Stack'])
+        viewer.layers.insert(len(viewer.layers) - 1, tempLayer)
     print('Loading Session Completed!')
     return
 
