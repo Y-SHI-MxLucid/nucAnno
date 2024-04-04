@@ -21,8 +21,7 @@ knn_model = None
 )
 def readImg(target: pathlib.Path):
     global cachedImgPath
-    cachedImgPath = target
-    reader(viewer, targetFile=target)
+    cachedImgPath = reader(viewer, targetFile=target)
 
 
 # 自动计算标点
@@ -121,8 +120,9 @@ def saveSession(save_prefix: pathlib.Path):
 def loadSession(load_path: pathlib.Path, auto_image_load: bool):
     global grpDict
     global finalRes
+    global cachedImgPath
     prefix = str(load_path)
-    finalRes = loadNprSession(viewer, datasheet, prefix, auto_image_load)
+    finalRes, cachedImgPath = loadNprSession(viewer, datasheet, prefix, auto_image_load)
     grpDict = getGroupDict(viewer)
 
 

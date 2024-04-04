@@ -141,7 +141,7 @@ def reader(viewer, targetFile, rgb=False):
     resetContrast(viewer.layers[-2])
 
     # return copy.deepcopy(imageStack)
-    return
+    return targetFile
 
 
 def formatPoints(viewer, groupName, randomColor, 
@@ -359,7 +359,7 @@ def loadNprSession(viewer, datasheet, loadPrefix, autoImgLoad):
         viewer.layers.remove(viewer.layers['Image Stack'])
         viewer.layers.insert(len(viewer.layers) - 1, tempLayer)
     print('Loading Session Completed!')
-    return copy.deepcopy(datasheet.data)
+    return copy.deepcopy(datasheet.data), imagePath
 
 
 # 将标注结果保存为ImageJ ROISet Zip文件。既然现在可以在工具内校正，这个功能现在仅仅是用于数据的通用化。
